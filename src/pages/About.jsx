@@ -3,7 +3,7 @@ import { GiNinjaHeroicStance } from 'react-icons/gi';
 
 function About() {
   return (
-    <>
+    <div className='container'>
       <GiNinjaHeroicStance className='text-7xl pr-2 inline' />
       <h1 className='text-6xl mb-4 inline align-middle'>Github Geeks</h1>
       <p className='mb-4 text-2xl font-light'>
@@ -36,7 +36,7 @@ function About() {
           Harsha Vardhan
         </a>
       </p>
-    </>
+    </div>
   );
 }
 
