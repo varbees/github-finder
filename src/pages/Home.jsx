@@ -1,6 +1,7 @@
 import React from 'react';
 import { GiFallingOvoid } from 'react-icons/gi';
 import UserResults from '../components/users/UserResults';
+import UserSearch from '../components/users/UserSearch';
 
 function Home() {
   return (
@@ -9,6 +10,7 @@ function Home() {
       <h1 className='text-6xl inline align-middle'> Welcome /_-_\</h1> */}
 
       {/* todo: search component */}
+      <UserSearch />
       <UserResults />
     </>
   );
