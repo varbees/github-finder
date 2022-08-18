@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function UserItem({ user: { login, avatar_url } }) {
-  console.log(login, avatar_url);
   return (
     <div className='card shadow-md compact side bg-base-100'>
       <div className='flex flex-row items-center space-x-4 card-body'>
@@ -17,7 +16,7 @@ function UserItem({ user: { login, avatar_url } }) {
         <div>
           <h2 className='card-title'>{login}</h2>
           <Link
-            className='text-base-content text-opacity-40 '
+            className='text-base-content text-opacity-40 hover:text-accent'
             to={`/users/${login}`}
           >
             {' '}
