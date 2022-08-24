@@ -16,20 +16,20 @@ export const GithubProvider = ({ children }) => {
   const [state, dispatch] = useReducer(GithubReducer, initialState);
 
   //Get initial users list for testing purposes
-  const fetchUsers = async () => {
-    setLoading();
-    const res = await fetch(`${GITHUB_URL}/users`, {
-      headers: {
-        Authorization: `token ${GITHUB_TOKEN}`,
-      },
-    });
-    // await new Promise(r => setTimeout(r, 2000));
-    const data = await res.json();
-    dispatch({
-      type: 'GET_USERS',
-      payload: data,
-    });
-  };
+  // const fetchUsers = async () => {
+  //   setLoading();
+  //   const res = await fetch(`${GITHUB_URL}/users`, {
+  //     headers: {
+  //       Authorization: `token ${GITHUB_TOKEN}`,
+  //     },
+  //   });
+  //   // await new Promise(r => setTimeout(r, 2000));
+  //   const data = await res.json();
+  //   dispatch({
+  //     type: 'GET_USERS',
+  //     payload: data,
+  //   });
+  // };
 
   //Get Search results for prod
   const searchUsers = async text => {
@@ -39,13 +39,14 @@ export const GithubProvider = ({ children }) => {
     });
     const res = await fetch(`${GITHUB_URL}/search/users?${params}`, {
       headers: {
-        Authorization: `token ${GITHUB_TOKEN}`,
+        'Authorization': `token ${GITHUB_TOKEN}`,
       },
     });
-    const { items } = await res.json();
+    const data= await res.json();
+    console.log(data)
     dispatch({
       type: 'GET_USERS',
-      payload: items,
+      payload: data.items,
     });
   };
 
@@ -58,7 +59,7 @@ export const GithubProvider = ({ children }) => {
       value={{
         users: state.users,
         isLoading: state.isLoading,
-        fetchUsers,
+        //fetchUsers,
         searchUsers,
         clearUsers,
       }}
