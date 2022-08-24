@@ -43,7 +43,7 @@ export const GithubProvider = ({ children }) => {
       },
     });
     const data= await res.json();
-    console.log(data)
+    //console.log(data)
     dispatch({
       type: 'GET_USERS',
       payload: data.items,
