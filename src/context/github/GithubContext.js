@@ -3,7 +3,6 @@ import GithubReducer from './GithubReducer';
 import { createContext } from 'react';
 import PropTypes from 'prop-types';
 
-
 const GithubContext = createContext();
 
 const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
@@ -41,11 +40,11 @@ export const GithubProvider = ({ children }) => {
     });
     const res = await fetch(`${GITHUB_URL}/search/users?${params}`, {
       headers: {
-        'Authorization': `token ${GITHUB_TOKEN}`,
+        Authorization: `token ${GITHUB_TOKEN}`,
       },
     });
-    const data= await res.json();
-    //console.log(data)
+    const data = await res.json();
+    console.log(data);
     dispatch({
       type: 'GET_USERS',
       payload: data.items,
@@ -74,6 +73,5 @@ export const GithubProvider = ({ children }) => {
 GithubContext.propTypes = {
   users: PropTypes.arrayOf(Object),
 };
-
 
 export default GithubContext;
