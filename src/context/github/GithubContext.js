@@ -1,6 +1,5 @@
-import React, { useReducer } from 'react';
+import React, { createContext, useReducer } from 'react';
 import GithubReducer from './GithubReducer';
-import { createContext } from 'react';
 import PropTypes from 'prop-types';
 
 const GithubContext = createContext();
