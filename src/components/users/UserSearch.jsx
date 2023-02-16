@@ -23,10 +23,10 @@ function UserSearch() {
   };
 
   return (
-    <div className='grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8'>
+    <div className='grid grid-flow-col xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8 '>
       <div>
         <form onSubmit={handleSubmit}>
-          <div className='form-control'>
+          <div className='form-control col-span-3'>
             <div className='relative'>
               <input
                 type='text'
@@ -46,7 +46,7 @@ function UserSearch() {
         </form>
       </div>
       {users.length > 0 && (
-        <div className=''>
+        <div className=' flex justify-start align-middle col-span-1'>
           <button onClick={clearUsers}>
             <AiFillCloseCircle className='text-6xl hover:text-accent' />
           </button>

@@ -6,12 +6,12 @@ import { GoHome } from 'react-icons/go';
 function NotFound() {
   return (
     <div className='text-center'>
-      <GiDividedSpiral className='text-9xl pr-2 mx-auto mb-5 text-accent-focus ' />
+      <GiDividedSpiral className='text-9xl pr-2 mx-auto mb-5 text-accent-focus motion-safe:animate-spin' />
       <h1 className='text-6xl mb-8 align-middle text-accent'>
         Lost in the <strong className='text-warning'>Void</strong>
       </h1>
       <Link to='/' className='btn btn-neutral btn-lg hover:text-accent'>
-        <GoHome className='mr-2 motion-safe:animate-pulse' />
+        <GoHome className='mr-2 motion-safe:animate-pulse text-teal-200' />
         Go Back Home
       </Link>
     </div>
