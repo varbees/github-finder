@@ -4,15 +4,19 @@ import { useParams, Link } from 'react-router-dom';
 import Spinner from '../components/layout/Spinner';
 import RepoList from '../components/repos/RepoList';
 import GithubContext from '../context/github/GithubContext';
+import { getUserAndRepos } from '../context/github/GithubActions';
 
 const User = () => {
   const { username } = useParams();
-  const { getUser, user, isLoading, clearUser, repos, getUserRepos } =
-    useContext(GithubContext);
+  const { user, isLoading, repos, dispatch } = useContext(GithubContext);
 
   useEffect(() => {
-    getUser(username);
-    getUserRepos(username);
+    dispatch({ type: 'SET_LOADING' });
+    const getUserData = async () => {
+      const userDataAndRepos = await getUserAndRepos(username);
+      dispatch({ type: 'GET_USER_AND_REPOS', payload: userDataAndRepos });
+    };
+    getUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -41,7 +45,11 @@ const User = () => {
     <>
       <div className='w-full mx-auto lg:w-10/12'>
         <div className='mb-4'>
-          <Link to='/' className='btn btn-ghost' onClick={clearUser}>
+          <Link
+            to='/'
+            className='btn btn-ghost'
+            onClick={() => dispatch({ type: 'CLEAR_USER' })}
+          >
             Back To Search
           </Link>
         </div>
