@@ -44,7 +44,6 @@ export const GithubProvider = ({ children }) => {
       },
     });
     const { items } = await res.json();
-    console.log(items);
     dispatch({
       type: 'GET_USERS',
       payload: items,
@@ -62,7 +61,6 @@ export const GithubProvider = ({ children }) => {
 
     if (res.status === 200) {
       const data = await res.json();
-      console.log(data);
       dispatch({
         type: 'GET_USER',
         payload: data,
@@ -83,7 +81,6 @@ export const GithubProvider = ({ children }) => {
 
     if (res.status === 200) {
       const data = await res.json();
-      console.log(data);
       dispatch({
         type: 'GET_USER_REPOS',
         payload: data,
