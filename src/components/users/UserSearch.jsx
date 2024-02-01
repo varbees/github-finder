@@ -10,8 +10,6 @@ function UserSearch() {
   const { users, dispatch } = useContext(GithubContext);
   const { setAlert } = useContext(AlertContext);
 
-  const handleChange = e => setText(e.target.value);
-
   const handleSubmit = async e => {
     e.preventDefault();
     if (text === '') {
@@ -35,7 +33,7 @@ function UserSearch() {
                 className='w-full pr-40 bg-gray-200 input input-lg text-black'
                 placeholder='Search'
                 value={text}
-                onChange={handleChange}
+                onChange={e => setText(e.target.value)}
               />
               <button
                 type='submit'
